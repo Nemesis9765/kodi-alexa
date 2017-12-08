@@ -14,10 +14,5 @@ if [ ! -L ${INSTALL_PATH}/kodi.config ]; then
 fi
 
 cd ${INSTALL_PATH}
-gunicorn \
-	#--certfile ${CONFIG_DIR}/server.crt \
-	#--keyfile ${CONFIG_DIR}/server.key \
-	--log-level $GUNICORN_LOGLEVEL \
-	-b 0.0.0.0:8000 \
-	alexa:app
+gunicorn --log-level $GUNICORN_LOGLEVEL -b 0.0.0.0:8000 alexa:app
 
